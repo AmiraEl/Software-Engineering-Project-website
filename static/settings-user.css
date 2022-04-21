@@ -4,69 +4,192 @@
   	font-size: 15px;
 } */
 
-body{
-    margin: 2em auto;
-    color: #11151b;
-    text-align: left;
-    background-color: #97d2e9;    
-}
-.main-body {
-    padding: 30px;
+/* navbar css */
+.mynav {
+    /*text-transform: uppercase;*/
+    /*border-bottom: 5px solid mediumpurple;*/
+    background-color: #141d2a;
+    padding-left: 0em;
+
+
 }
 
-.nav-link {
-    color: #4a5568;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+.mynav a {
+
+    color: #e17b55;
 }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
+.navbar-nav {
+    margin-left: 100%;
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+li a, button, .input-field {
+    display: block;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px 14px 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.mynav li a:hover, button.btn:hover, .active, .dropbtn:hover {
+    color: #e17b55;
+    text-decoration: none;
+    background-color: #2b425e;
+    border-radius: 10%;
+}
+input.search-input {
+    background-color: #2b425e;
+    border-color: #2b425e;
+
+}
+
+input.search-input::placeholder {
+    color: rgba(225, 123, 85, 0.55);
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro&display=swap');
+.logo2 {
+  
+    background-color: #141d2a;
+    font-family: 'Source Code Pro', monospace;
+    font-style: italic;
+    color: #e17b55;
+}
+
+a.navbar-brand{
+    font-size: 20px;
+    padding-left: 0;
+    padding-top: 10px;
+
+}
+
+/* settings-form css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #2b425e;
+}
+
+.wrapper {
+    padding: 30px 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    background-color: #fefffe;
+}
+
+h4 {
+    letter-spacing: -1px;
+    font-weight: 400
+}
+
+.img {
+    width: 8em;
+    height: 8em;
+    /* border-radius: 6px; */
+    /* object-fit:fill; */
+}
+
+#img-section p,
+#deactivate p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+    text-align: justify
+}
+
+#img-section b,
+#img-section button,
+#deactivate b {
+    font-size: 14px
+}
+
+label {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+    padding-left: 3px
+}
+
+.form-control {
+    border-radius: 10px
+}
+
+input[placeholder] {
+    font-weight: 500
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1.5px solid #0779e4
+}
+
+select {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    height: 40px;
+    padding: 5px 10px
+}
+
+select:focus {
+    outline: none
+}
+
+.button {
     background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    color: #0779e4
 }
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
-}
-
-.gutters-sm {
-    margin-right: -8px;
-    margin-left: -8px;
-}
-
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
-}
-
-.bg-gray-300 {
-    background-color: #e2e8f0;
-}
-.h-100 {
-    height: 100%!important;
-}
-.shadow-none {
-    box-shadow: none!important;
+.button:hover {
+    background-color: #0779e4;
+    color: #fff
 }
 
 .btn-primary {
-    background-color: #e17b55;
-    border: none;
+    background-color: #0779e4
 }
 
-.btn-primary:hover{
-    background-color: #e08b6c;
+.danger {
+    background-color: #fff;
+    color: #e20404;
+    border: 1px solid #ddd
+}
+
+.danger:hover {
+    background-color: #e20404;
+    color: #fff
+}
+
+@media(max-width:576px) {
+    .wrapper {
+        padding: 25px 20px
+    }
+
+    #deactivate {
+        line-height: 18px
+    }
 }
