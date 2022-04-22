@@ -29,11 +29,11 @@
     <nav class="navbar navbar-expand-lg mynav">
         <div class="col-md-4 lg-3">
             <ul>
-                <li><a class="navbar-brand" href="Home.html">CSE<span>.study()</span></a>
+                <li><a class="navbar-brand" href="{{ url_for('homePage') }}">CSE<span>.study()</span></a>
                 </li>
                 <li><a href="{{ url_for('homePage') }}">Home</a></li>
-                <li><a href="">Personal Library</a></li>
-                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li><a href="{{ url_for('library') }}">Personal Library</a></li>
+                <li><a method="GET" href="{{ url_for('profile') }}">Profile</a></li>
 
             </ul>
         </div>
@@ -53,19 +53,20 @@
                     </div>
                     <div id="sub_res"></div>
                 </li>
-                <div class="dropdown">
-                    <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
-                            class="fa fa-gear"></i>
-                    </button>
-                    <div class="dropdown-content" method="POST">
-                        <a href="{{ url_for('userSettingsPage') }}">Settings</a>
-                        <a href="{{ url_for('landing') }}">Logout</a>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
+                                class="fa fa-gear"></i>
+                        </button>
+                        <div class="dropdown-content" method="POST">
+                            <a href="{{ url_for('userSettingsPage') }}">Settings</a>
+                            <a href="{{ url_for('landing') }}">Logout</a>
+                        </div>
                     </div>
-                </div>
+                </li>
+            </ul>
         </div>
-        </ul>
-</div>
-</nav>
+    </nav>
 </div>
 
 <!-- COURSES -->
