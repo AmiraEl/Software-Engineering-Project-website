@@ -1,7 +1,11 @@
+/*********** navbar css ************/
 .mynav {
     /*text-transform: uppercase;*/
     /*border-bottom: 5px solid mediumpurple;*/
-    background-color: #97d2e9;
+    background-color: #141d2a;
+    padding-left: 0em;
+
+
 }
 
 .mynav a {
@@ -9,6 +13,9 @@
     color: #e17b55;
 }
 
+.navbar-nav {
+    margin-left: 100%;
+}
 
 ul {
     list-style-type: none;
@@ -25,16 +32,43 @@ li a, button, .input-field {
     color: white;
     text-decoration: none;
     text-align: center;
-    padding: 18px 16px 10px;
+    padding: 18px 14px 10px;
     font-weight: bold;
+    font-size: 14px;
 }
-
-.mynav li a:hover, button.btn:hover {
+.mynav li a:hover, button.btn:hover, .active, .dropbtn:hover {
     color: #e17b55;
     text-decoration: none;
-    background-color: #b6e1f1;
+    background-color: #2b425e;
     border-radius: 10%;
 }
+input.search-input {
+    background-color: #2b425e;
+    border-color: #2b425e;
+
+}
+
+input.search-input::placeholder {
+    color: rgba(225, 123, 85, 0.55);
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro&display=swap');
+.logo2 {
+  
+    background-color: #141d2a;
+    font-family: 'Source Code Pro', monospace;
+    font-style: italic;
+    color: #e17b55;
+}
+
+a.navbar-brand{
+    font-size: 20px;
+    padding-left: 0;
+    padding-top: 10px;
+
+}
+
 
 /*#fefffe*/
 /*#2b425e*/
