@@ -129,6 +129,11 @@ a.navbar-brand{
 
 }
 
+a.navbar-brand:hover{
+    background-color: #141d2a;
+
+}
+
 
 .card {
     /* Add shadows to create the "card" effect */

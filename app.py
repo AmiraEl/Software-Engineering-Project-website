@@ -61,6 +61,14 @@ def signupPage():
 def loginPage():
     return render_template('login.html')
 
+@app.route('/homepage/')
+def homePage():
+    return render_template('Home.html')
+
+@app.route('/UserSettingsPage/')
+def userSettingsPage():
+    return render_template('settings-user.html')
+
 
 if __name__ == '__main__':
     app.run()
