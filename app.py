@@ -16,6 +16,7 @@ app.config['MYSQL_DB'] = 'swe'
 
 # Intialize MySQL
 mysql = MySQL(app)
+userID = ''
 
 
 @app.route('/')
@@ -26,19 +27,16 @@ def landing():
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     # Check if "username" and "password" POST requests exist (user submitted form)
-    print("inside login")
     if request.method == 'POST' and 'txtEmail' in request.form and 'txtPassword' in request.form:
         # Create variables for easy access
         email = request.form['txtEmail']
         password = request.form['txtPassword']
-        print("inside if")
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        print("connected to database")
-
         cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s;', (email, password,))
         # Fetch one record and return result
         account = cursor.fetchone()
+        cursor.close()
         print(account)
         # If account exists in accounts table in out database
         if account:
@@ -46,8 +44,9 @@ def login():
             session['loggedin'] = True
             session['User_ID'] = account['User_ID']
             session['Username'] = account['Username']
+            session['type'] = account['type']
             # Redirect to home page
-            return render_template('Home.html')
+            return redirect(url_for('homePage'))
 
     # Show the login form with message (if any)
     return render_template('login.html')
@@ -57,18 +56,43 @@ def login():
 def signupPage():
     return render_template('signup.html')
 
+
 @app.route('/loginpage/')
 def loginPage():
     return render_template('login.html')
 
+
 @app.route('/homepage/')
 def homePage():
-    return render_template('Home.html')
+    if session['type'] == '0':  # student
+        return render_template('Home.html')
+    else: #admin
+        return render_template('Adminfeed.html')
 
-@app.route('/UserSettingsPage/')
+
+@app.route('/UserSettingsPage/', methods=['POST', 'GET'])
 def userSettingsPage():
-    return render_template('settings-user.html')
+    username = ''
+    fname = ''
+    lname = ''
+    email = ''
+    dept = ''
+    print("here")
 
+    if request.method == 'GET':
+        print("inside if")
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM users WHERE User_ID = %s', (session['User_ID']))
+        # Fetch one record and return result
+        account = cursor.fetchone()
+        print("inside account")
+        fname = account['first_name']
+        lname = account['last_name']
+        username = account['Username']
+        email = account['email']
+        dept = account['department']
+        cursor.close()
+    return render_template('settings-user.html', username=username, fname=fname, lname=lname, email=email, dept = dept)
 
 if __name__ == '__main__':
     app.run()
