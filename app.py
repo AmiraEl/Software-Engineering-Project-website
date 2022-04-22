@@ -24,6 +24,11 @@ def landing():
     return render_template("index.html")
 
 
+@app.route('/library/')
+def library():
+    return render_template("library.html")
+
+
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     # Check if "username" and "password" POST requests exist (user submitted form)
@@ -74,6 +79,7 @@ def profile():
         username = account['Username']
         email = account['email']
         dept = account['department']
+    cursor.close()
     return render_template('public.html', username=username, fname=fname, lname=lname, email=email, dept=dept)
 
 
@@ -114,7 +120,7 @@ def userSettingsPage():
         username = request.form['username']
         email = request.form['email']
         dept = request.form['dept']
-        if request.form['pass'] != '':
+        if 'pass' in request.form:
             cursor.execute(
                 'UPDATE users set first_name = %s, last_name = %s, department = %s, password = %s, email = %s, Username = %s WHERE User_ID = %s',
                 (fname, lname, dept, [request.form['pass']],

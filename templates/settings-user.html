@@ -30,10 +30,10 @@
     <nav class="navbar navbar-expand-lg mynav">
         <div class="col-md-4 lg-3">
             <ul>
-                <li><a class="navbar-brand" href="Home.html">CSE<span>.study()</span></a>
+                <li><a class="navbar-brand" href="{{ url_for('homePage') }}">CSE<span>.study()</span></a>
                 </li>
                 <li><a href="{{ url_for('homePage') }}">Home</a></li>
-                <li><a href="#">Library</a></li>
+                <li><a href="{{ url_for('library') }}">Personal Library</a></li>
             </ul>
 
         </div>
@@ -44,47 +44,80 @@
 </div>
 
 <!-- SETTINGS PANELS & FORMS -->
-  <!--name username pwsd reset link email delete-->
-  <div class="container form-body">
+<!--name username pwsd reset link email delete-->
+<div class="container form-body">
     <div class="wrapper bg-white mt-sm-5">
-      <h3 class="pb-4 border-bottom"><b>Account Settings</b></h3>
-      <div class="d-flex align-items-start py-3 border-bottom">
-        <img src="\static\Processing-bro.png" class="img" alt="">
-      </div>
-      <div class="py-2">
-          <div class="row py-2">
-              <div class="col-md-6"> <label for="firstname">First Name</label> <input type="text" class="bg-light form-control" id="txtfName" name="fname" value="{{ fname }}"> </div>
-              <div class="col-md-6"> <label for="lastname">Last Name</label> <input type="text" class="bg-light form-control" id="txtlName" name = "lname" value="{{ lname }}"> </div>
-          </div>
-          <div class="row py-2">
-              <div class="col-md-6 pt-md-0 pt-3"> <label for="username">Username</label> <input type="text" class="bg-light form-control" name = "username" id="txtUsername" value="{{ username }}"> </div>
-              <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" class="bg-light form-control" id="txtEmail" name = "email" value="{{ email }}"> </div>
-          </div>
-          <div class="row py-2">
-              <div class="col-md-6 pt-md-0 pt-3"> <label for="department">Department</label> <input type="text" class="bg-light form-control" name = "dept"  id="txtDept" value="{{ dept }}"> </div>
-          </div>
-          <br><hr>
-          <b>Change your password</b>
-          <div class="row py-2">
-            <div class="col-md-6"> <label for="email">Password</label> <input type="password" class="bg-light form-control" name = "pass" id="txtPassword" value=""> </div>
-            <div class="col-md-6"> <label for="email">Confirm Password</label> <input type="password" class="bg-light form-control" name = "confirmpass" id="txtConfirmPassword" value=""> </div>
-          </div>
-          <br>
-          <div class="py-3 pb-4 border-bottom">
-            <button class="btn btn-primary mr-3" id="btnSave" method="POST" onclick="{{ url_for('userSettingsPage') }}">Save Changes</button>
-            <button class="btn border button" id="btnCancel" method="GET" onclick= "{{ url_for('userSettingsPage') }}">Cancel</button>
-          </div>
+        <h3 class="pb-4 border-bottom"><b>Account Settings</b></h3>
+        <div class="d-flex align-items-start py-3 border-bottom">
+            <img src="../static/Processing-bro.png" class="img" alt="">
+        </div>
+        <div class="py-2">
+            <div class="row py-2">
+                <div class="col-md-6"><label for="firstname">First Name</label> <input type="text"
+                                                                                       class="bg-light form-control"
+                                                                                       id="fname" name="fname"
+                                                                                       value="{{ fname }}"></div>
+                <div class="col-md-6"><label for="lastname">Last Name</label> <input type="text"
+                                                                                     class="bg-light form-control"
+                                                                                     id="lname" name="lname"
+                                                                                     value="{{ lname }}"></div>
+            </div>
+            <div class="row py-2">
+                <div class="col-md-6 pt-md-0 pt-3"><label for="username">Username</label> <input type="text"
+                                                                                                 class="bg-light form-control"
+                                                                                                 name="username"
+                                                                                                 id="username"
+                                                                                                 value="{{ username }}">
+                </div>
+                <div class="col-md-6"><label for="email">Email Address</label> <input type="text"
+                                                                                      class="bg-light form-control"
+                                                                                      id="email" name="email"
+                                                                                      value="{{ email }}"></div>
+            </div>
+            <div class="row py-2">
+                <div class="col-md-6 pt-md-0 pt-3"><label for="department">Department</label> <input type="text"
+                                                                                                     class="bg-light form-control"
+                                                                                                     name="dept"
+                                                                                                     id="dept"
+                                                                                                     value="{{ dept }}">
+                </div>
+            </div>
+            <br>
+            <hr>
+            <b>Change your password</b>
+            <div class="row py-2">
+                <div class="col-md-6"><label for="email">Password</label> <input type="password"
+                                                                                 class="bg-light form-control"
+                                                                                 name="pass" id="pass" value="">
+                </div>
+                <div class="col-md-6"><label for="email">Confirm Password</label> <input type="password"
+                                                                                         class="bg-light form-control"
+                                                                                         name="confirmpass"
+                                                                                         id="confirmpass"
+                                                                                         value=""></div>
+            </div>
+            <br>
+            <div class="py-3 pb-4 border-bottom">
+                <button class="btn btn-primary mr-3" id="btnSave" method="POST"
+                        onclick="{{ url_for('userSettingsPage') }}">Save Changes
+                </button>
+                <button class="btn border button" id="btnCancel" method="GET"
+                        onclick="{{ url_for('userSettingsPage') }}">Cancel
+                </button>
+            </div>
 
-          <div class="d-sm-flex align-items-center pt-3" id="btnDeactivate">
-              <div> <b>Deactivate your account</b>
-                  <p>This will delete all your private and public decks. This is cannot be undone.</p>
-              </div>
-              <div class="ml-auto"> <button class="btn danger">Deactivate</button> </div>
-          </div>
+            <div class="d-sm-flex align-items-center pt-3" id="btnDeactivate">
+                <div><b>Deactivate your account</b>
+                    <p>This will delete all your private and public decks. This is cannot be undone.</p>
+                </div>
+                <div class="ml-auto">
+                    <button class="btn danger">Deactivate</button>
+                </div>
+            </div>
 
-      </div>
-  </div>
-  </div>
+        </div>
+    </div>
+</div>
 
 
 <!--bootstrap scripts-->
