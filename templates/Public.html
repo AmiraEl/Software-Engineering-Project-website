@@ -14,7 +14,10 @@
     <!--local stylesheet-->
     <link rel="stylesheet" href=
             "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/Public.css">
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../static/Public.css">
 
 </head>
 
@@ -68,25 +71,97 @@
     <div class="card p-4">
 
         <div class=" image d-flex flex-column justify-content-center align-items-center">
-            <button class="btn btn-secondary">
+            <button class="btn btn-secondary" style="color: #fff; background-color: #6c757d;border-color: #6c757d;">
                 <img src="../static/wvxPV9S.png" height="100" width="100"/></button>
+            <br>
+            <br>
             <div class="row">
-                <div class="col-md-auto"><h4>{{ fname }}</h4></div>
-                <div class="col-md-auto"><h4>{{ lname }}</h4></div>
-            </div>
-        </div>
-        <div class="row py-2">
-            <div class="col-md-auto pt-md-0 pt-3"><h4>@{{ username }}</h4>
-                <div>
-                    <div class="col-md-auto"><h4>{{ email }}</h4></div>
-                </div>
-                <div class="row py-2">
-                    <div class="col-md-auto pt-md-0 pt-3"><h4>{{ dept }}</h4></div>
-                </div>
+                <div class="col-md-auto"><h3>@{{ username }}</h3></div>
 
             </div>
         </div>
+        <br>
+        <div class="row py-2">
+            <div class="col-md-auto pt-md-0 pt-4">
+                <div>
+                    <div class="col-md-auto"><h4>Name: {{ fname }}  {{ lname }}</h4></div>
+                </div>
+
+                <div>
+                    <div class="col-md-auto"><h4>Email: {{ email }}</h4></div>
+                </div>
+
+                <div>
+                    <div class="col-md-auto"><h4>Department: {{ dept }}</h4></div>
+                </div>
+                <hr>
+                <div>
+                    <div class="col-md-auto" ><h4>Published decks: 4 </h4></div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<br>
+<div class="cols-sm-1 offset-1">
+        <h1>
+            <div class="h1modified">Public Decks</div>
+        </h1>
+        <br>
+
+    </div>
+
+<div class="row-cols-12  offset-1">
+    <div class="card-group">
+        <div class="cols-1" style="padding: 10px;">
+            <div class="card">
+                <img src="\static\compEng.png" alt="coe" style="width:100%;">
+                <div class="container">
+                    <h5><b>COE251: Lab Revision</b></h5>
+                    <p>AmiraEl</p>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">Unpublish</a>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">view</a>
+                </div>
+            </div>
+        </div>
+        <div class="cols-1" style="padding: 10px;">
+            <div class="card">
+                <img src="\static\4804443.jpg" alt="cs" style="height:100%;">
+                <div class="container">
+                    <h5><b>CMP120: Midterm Revision</b></h5>
+                    <p>AmiraEl</p>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">Unpublish</a>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">view</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="cols-1" style="padding: 10px;">
+            <div class="card">
+                <img src="\static\compEng.png" alt="coe" style="width:100%;">
+                <div class="container">
+                    <h5><b>COE420: Design Steps</b></h5>
+                    <p>AmiraEl</p>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">Unpublish</a>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">view</a>
+                </div>
+            </div>
+        </div>
+        <div class="cols-1" style="padding: 10px;">
+            <div class="card">
+                <img src="\static\4804443.jpg" alt="cs" style="width:100%;">
+                <div class="container">
+                    <h5><b>CMP256: Midterm Revision</b></h5>
+                    <p>AmiraEl</p>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">Unpublish</a>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;">view</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 </body>
 </html>
