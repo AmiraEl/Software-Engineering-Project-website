@@ -29,10 +29,13 @@
     <nav class="navbar navbar-expand-lg mynav">
         <div class="col-md-4 lg-3">
             <ul>
-                <li><a class="navbar-brand" href="{{ url_for('homePage') }}">CSE<span>.study()</span></a></li>
+                <li><a class="navbar-brand" href="Home.html">CSE<span>.study()</span></a>
+                </li>
                 <li><a href="{{ url_for('homePage') }}">Home</a></li>
-                <li><a href="">Library</a></li>
-            </ul>
+                <li><a href="Library.html">Library</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+
+                 </ul>
 
         </div>
         <div class="col-4 offset-1">
@@ -50,7 +53,7 @@
                     </div>
                     <div id="sub_res"></div>
                 </li>
-                <li class="nav-item"><a href="{{ url_for('userSettingsPage') }}">Settings</a></li>
+                <li class="nav-item"><a href="/templates/settings-user.html">Settings</a></li>
             </ul>
         </div>
     </nav>
