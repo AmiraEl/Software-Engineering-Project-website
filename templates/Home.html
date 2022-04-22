@@ -54,12 +54,11 @@
                     <div id="sub_res"></div>
                 </li>
   <div class="dropdown">
-    <button class="dropbtn">Settings
-      <i class="fa fa-caret-down"></i>
+    <button class="dropbtn" >Settings <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">Account settings</a>
-      <a href="#">Logout</a>
+      <a href="{{ url_for('userSettingsPage')}}">Account settings</a>
+      <a href="{{ url_for('landing') }}">Logout</a>
     </div>
   </div>
 </div>                
