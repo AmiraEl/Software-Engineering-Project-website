@@ -77,11 +77,16 @@ li a, button, .input-field {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #2b425e;
+    background-color: #141d2a;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+
+.dropdown-content.a:hover {
+    background-color: #2b425e;
+}
+
 
 /* Links inside the dropdown */
 .dropdown-content a {
