@@ -18,22 +18,24 @@ app.config['MYSQL_DB'] = 'swe'
 mysql = MySQL(app)
 
 
-# http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
 @app.route('/')
 def landing():
     return render_template("index.html")
 
 
-# http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
     # Check if "username" and "password" POST requests exist (user submitted form)
+    print("inside login")
     if request.method == 'POST' and 'txtEmail' in request.form and 'txtPassword' in request.form:
         # Create variables for easy access
         email = request.form['txtEmail']
-        password = request.form['password']
+        password = request.form['txtPassword']
+        print("inside if")
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        print("connected to database")
+
         cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s;', (email, password,))
         # Fetch one record and return result
         account = cursor.fetchone()
@@ -42,8 +44,8 @@ def login():
         if account:
             # Create session data, we can access this data in other routes
             session['loggedin'] = True
-            session['user_id'] = account['user_id']
-            session['username'] = account['username']
+            session['User_ID'] = account['User_ID']
+            session['Username'] = account['Username']
             # Redirect to home page
             return render_template('Home.html')
 
@@ -51,12 +53,10 @@ def login():
     return render_template('login.html')
 
 
-# http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
 @app.route('/sigupPage/')
 def signupPage():
     return render_template('signup.html')
 
-# http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
 @app.route('/loginpage/')
 def loginPage():
     return render_template('login.html')
