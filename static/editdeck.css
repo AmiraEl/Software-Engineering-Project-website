@@ -109,7 +109,7 @@ a.navbar-brand{
 
 body {
     background: #2b425e;
-    color: white
+    color: white;
 }
 
 h2 {
@@ -134,7 +134,8 @@ h2 {
 }
 
 header {
-    background-color: white;
+    /* background-color: white; */
+    color: white;
 }
 
 .container {
@@ -148,7 +149,7 @@ header {
     width: 100%;
     margin: auto;
     padding: 1rem 0;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .create-box {
