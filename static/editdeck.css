@@ -107,7 +107,7 @@ a.navbar-brand{
 /*#2b425e*/
 /*#fd9543*/
 
-body, h2 {
+body {
     background: #2b425e;
     color: white
 }
@@ -117,56 +117,81 @@ h2 {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro&display=swap');
-.logo2 {
+.logo2, .navbar-brand {
     font-family: 'Source Code Pro', monospace;
-    font-style: italic;
+    /* font-style: italic; */
     color: #e17b55;
 }
 
-/********************** rest of body css ***************/
-.title {
-  font-family: 'Source Code Pro', monospace;
-  text-align: center;
+/***************** rest of body css ********************/
+* {
+    padding: 0; margin: 0; box-sizing: border-box;
+}
+.editor-area {
+    font-size: 1rem;
+    /* background-color: rgba(255,255,255,0.05); */
+    color: black;
 }
 
-.term, .definition {
-  /* border: solid 1px black; */
-  border-radius: 10px;
-  text-align: center;
-  width: 45%;
-  height: 30em;
-  margin: auto;
-  margin-top: 5em;
-  /* padding-top: 3em; */
-  /* padding-bottom: 3em; */
-  padding: 6em 2em;
-  background-color: white;
-  color: #141d2a;
-  font-family: 'Times New Roman', Times, serif;
-  
+header {
+    background-color: white;
 }
 
-.term h3 {
-  font-size: 3rem;
+.container {
+    width: 95%;
+    margin: auto;
 }
-/* 
-.definition {
-  display: none;
-} */
 
-/* .definition {
-  border: solid 5px black;
-  border-radius: 10px;
-  text-align: center;
-  width: 45%;
-  margin: auto;
-  margin-top: 2em;
-  padding-top: 3em;
-  padding-bottom: 3em;
-} */
-
-
-.control-btns, .viewDeck-btn {
-  text-align: center;
-  margin-top: 3em;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    padding: 1rem 0;
+    background-color: white;
 }
+
+.create-box {
+    width: 380px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.create-box textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.create-box button {
+    width: fit-content;
+}
+
+.flashcards {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.flashcard {
+    width: 370px;
+    height: 200px;
+    word-wrap: break-word;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.flashcard h2 {
+    font-size: 1rem;
+}
+

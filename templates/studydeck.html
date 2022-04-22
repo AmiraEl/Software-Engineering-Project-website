@@ -25,7 +25,7 @@
 </head>
 <body onload="loadCards()">
 
-    <!--    NAVBAR  -->
+<!--    NAVBAR  -->
 <div class="row-cols-auto">
     <nav class="navbar navbar-expand-lg mynav">
         <div class="col-md-4 lg-3">
@@ -69,18 +69,19 @@
 </nav>
 </div>
 
-    <h1 class="title">Study deck</h1>
+    <!-- STUDY DECK AREA -->
+    <h1 class="title">Study {{deck name}}</h1>
 
-    <div class="term"><h3>Term</h3></div>
+    <div class="term" name="termCard"><h3>{{Term}}</h3></div>
     <!-- <div class="definition"><h3>Definition</h3></div> -->
     
     <!-- BUTTONS -->
     <div class="control-btns">
-        <button type="button" class="btn btn-secondary btnPrev">Previous Term</button>
-        <button type="button" class="btn btn-success btnDef">Show Definition</button>
-        <button type="button" class="btn btn-secondary btnNext">Next Term</button>
+        <button type="button" class="btn btn-secondary btnPrev" name="prevBtn">Previous Term</button>
+        <button type="button" class="btn btn-success btnDef" name="greenBtn">Show Definition</button>
+        <button type="button" class="btn btn-secondary btnNext" name="nextBtn">Next Term</button>
     </div>
-    <div class="viewDeck-btn"><button type="button" class="btn btn-secondary href="#">Back to deck</button></div>
+    <div class="viewDeck-btn"><button type="button" class="btn btn-secondary" name="backtoDeckBtn" href="#viewDeck">Back to deck</button></div>
 
 
 
