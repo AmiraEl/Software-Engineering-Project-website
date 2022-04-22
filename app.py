@@ -57,6 +57,26 @@ def signupPage():
     return render_template('signup.html')
 
 
+@app.route('/profile/', methods=['GET'])
+def profile():
+    username = ''
+    fname = ''
+    lname = ''
+    email = ''
+    dept = ''
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == 'GET':
+        cursor.execute('SELECT * FROM users WHERE User_ID = %s', (session['User_ID']))
+        # Fetch one record and return result
+        account = cursor.fetchone()
+        fname = account['first_name']
+        lname = account['last_name']
+        username = account['Username']
+        email = account['email']
+        dept = account['department']
+    return render_template('public.html', username=username, fname=fname, lname=lname, email=email, dept=dept)
+
+
 @app.route('/loginpage/')
 def loginPage():
     return render_template('login.html')
@@ -66,7 +86,7 @@ def loginPage():
 def homePage():
     if session['type'] == '0':  # student
         return render_template('Home.html')
-    else: #admin
+    else:  # admin
         return render_template('Adminfeed.html')
 
 
@@ -77,22 +97,38 @@ def userSettingsPage():
     lname = ''
     email = ''
     dept = ''
-    print("here")
-
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'GET':
-        print("inside if")
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM users WHERE User_ID = %s', (session['User_ID']))
         # Fetch one record and return result
         account = cursor.fetchone()
-        print("inside account")
         fname = account['first_name']
         lname = account['last_name']
         username = account['Username']
         email = account['email']
         dept = account['department']
-        cursor.close()
-    return render_template('settings-user.html', username=username, fname=fname, lname=lname, email=email, dept = dept)
+
+    if request.method == 'POST' and request.form['pass'] == request.form['confirmpass']:
+        fname = request.form['fname']
+        lname = request.form['lname']
+        username = request.form['username']
+        email = request.form['email']
+        dept = request.form['dept']
+        if request.form['pass'] != '':
+            cursor.execute(
+                'UPDATE users set first_name = %s, last_name = %s, department = %s, password = %s, email = %s, Username = %s WHERE User_ID = %s',
+                (fname, lname, dept, [request.form['pass']],
+                 email, username, [session['User_ID']],))
+            mysql.connection.commit()
+        else:
+            cursor.execute(
+                'UPDATE users set first_name = %s, last_name = %s, department = %s, email = %s, Username = %s WHERE User_ID = %s',
+                (fname, lname, dept, email, username, [session['User_ID']],))
+            mysql.connection.commit()
+
+    cursor.close()
+    return render_template('settings-user.html', username=username, fname=fname, lname=lname, email=email, dept=dept)
+
 
 if __name__ == '__main__':
     app.run()

@@ -53,26 +53,26 @@
       </div>
       <div class="py-2">
           <div class="row py-2">
-              <div class="col-md-6"> <label for="firstname">First Name</label> <input type="text" class="bg-light form-control" id="txtfName" value="{{ fname }}"> </div>
-              <div class="col-md-6"> <label for="lastname">Last Name</label> <input type="text" class="bg-light form-control" id="txtlName" value="{{ lname }}"> </div>
+              <div class="col-md-6"> <label for="firstname">First Name</label> <input type="text" class="bg-light form-control" id="txtfName" name="fname" value="{{ fname }}"> </div>
+              <div class="col-md-6"> <label for="lastname">Last Name</label> <input type="text" class="bg-light form-control" id="txtlName" name = "lname" value="{{ lname }}"> </div>
           </div>
           <div class="row py-2">
-              <div class="col-md-6 pt-md-0 pt-3"> <label for="username">Username</label> <input type="text" class="bg-light form-control" id="txtUsername" value="{{ username }}"> </div>
-              <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" class="bg-light form-control" id="txtEmail" value="{{ email }}"> </div>
+              <div class="col-md-6 pt-md-0 pt-3"> <label for="username">Username</label> <input type="text" class="bg-light form-control" name = "username" id="txtUsername" value="{{ username }}"> </div>
+              <div class="col-md-6"> <label for="email">Email Address</label> <input type="text" class="bg-light form-control" id="txtEmail" name = "email" value="{{ email }}"> </div>
           </div>
           <div class="row py-2">
-              <div class="col-md-6 pt-md-0 pt-3"> <label for="department">Department</label> <input type="text" class="bg-light form-control" id="txtDept" value="{{ dept }}"> </div>
+              <div class="col-md-6 pt-md-0 pt-3"> <label for="department">Department</label> <input type="text" class="bg-light form-control" name = "dept"  id="txtDept" value="{{ dept }}"> </div>
           </div>
           <br><hr>
           <b>Change your password</b>
           <div class="row py-2">
-            <div class="col-md-6"> <label for="email">Password</label> <input type="password" class="bg-light form-control" id="txtPassword" value=""> </div>
-            <div class="col-md-6"> <label for="email">Confirm Password</label> <input type="password" class="bg-light form-control" id="txtConfirmPassword" value=""> </div>
+            <div class="col-md-6"> <label for="email">Password</label> <input type="password" class="bg-light form-control" name = "pass" id="txtPassword" value=""> </div>
+            <div class="col-md-6"> <label for="email">Confirm Password</label> <input type="password" class="bg-light form-control" name = "confirmpass" id="txtConfirmPassword" value=""> </div>
           </div>
           <br>
           <div class="py-3 pb-4 border-bottom">
-            <button class="btn btn-primary mr-3" id="btnSave" onclick="">Save Changes</button>
-            <button class="btn border button" id="btnCancel">Cancel</button>
+            <button class="btn btn-primary mr-3" id="btnSave" method="POST" onclick="{{ url_for('userSettingsPage') }}">Save Changes</button>
+            <button class="btn border button" id="btnCancel" method="GET" onclick= "{{ url_for('userSettingsPage') }}">Cancel</button>
           </div>
 
           <div class="d-sm-flex align-items-center pt-3" id="btnDeactivate">
