@@ -17,24 +17,24 @@ app.config['MYSQL_DB'] = 'swe'
 # Intialize MySQL
 mysql = MySQL(app)
 
+
 # http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def landing():
     return render_template("index.html")
 
 
-
 # http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
-       # Check if "username" and "password" POST requests exist (user submitted form)
+    # Check if "username" and "password" POST requests exist (user submitted form)
     if request.method == 'POST' and 'txtEmail' in request.form and 'txtPassword' in request.form:
         # Create variables for easy access
         email = request.form['txtEmail']
         password = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (email, password,))
+        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s;', (email, password,))
         # Fetch one record and return result
         account = cursor.fetchone()
         print(account)
@@ -49,3 +49,18 @@ def login():
 
     # Show the login form with message (if any)
     return render_template('login.html')
+
+
+# http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
+@app.route('/sigupPage/')
+def signupPage():
+    return render_template('signup.html')
+
+# http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
+@app.route('/loginpage/')
+def loginPage():
+    return render_template('login.html')
+
+
+if __name__ == '__main__':
+    app.run()
