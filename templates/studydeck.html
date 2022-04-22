@@ -54,35 +54,34 @@
                     </div>
                     <div id="sub_res"></div>
                 </li>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
-                                class="fa fa-gear"></i>
-                        </button>
-                        <div class="dropdown-content" method="POST">
-                            <a href="{{ url_for('userSettingsPage') }}">Settings</a>
-                            <a href="{{ url_for('landing') }}">Logout</a>
-                        </div>
+                <div class="dropdown">
+                    <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
+                            class="fa fa-gear"></i>
+                    </button>
+                    <div class="dropdown-content" method="POST">
+                        <a href="{{ url_for('userSettingsPage') }}">Settings</a>
+                        <a href="{{ url_for('landing') }}">Logout</a>
                     </div>
-                </li>
-            </ul>
+                </div>
         </div>
-    </nav>
+        </ul>
+</div>
+</nav>
 </div>
 
 
     <h1 class="title">Study deck</h1>
 
-    <div class="term"><h3>Term</h3></div>
+    <div class="term" name="termCard"><h3>{{Term}}</h3></div>
     <!-- <div class="definition"><h3>Definition</h3></div> -->
     
     <!-- BUTTONS -->
     <div class="control-btns">
-        <button type="button" class="btn btn-secondary btnPrev">Previous Term</button>
-        <button type="button" class="btn btn-success btnDef">Show Definition</button>
-        <button type="button" class="btn btn-secondary btnNext">Next Term</button>
+        <button type="button" class="btn btn-secondary btnPrev" name="prevBtn">Previous Term</button>
+        <button type="button" class="btn btn-success btnDef" name="greenBtn">Show Definition</button>
+        <button type="button" class="btn btn-secondary btnNext" name="nextBtn">Next Term</button>
     </div>
-    <div class="viewDeck-btn"><button type="button" class="btn btn-secondary href="#">Back to deck</button></div>
+    <div class="viewDeck-btn"><button type="button" class="btn btn-secondary" name="backtoDeckBtn" href="#viewDeck">Back to deck</button></div>
 
 
 
