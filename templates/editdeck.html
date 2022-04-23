@@ -75,8 +75,9 @@
                 <div class="nav">
                     <h1>Flashcards</h1>
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-primary" type="button" onclick="showCreateCardBox()">New Card</button>
-                        <button class="btn btn-primary" type="button" onclick="delFlashCards()">Del All Card</button>
+                        <button class="btn btn-success" type="button" onclick="showCreateCardBox()">Add Card</button>
+                        <button class="btn btn-danger" type="button" onclick="delFlashCards()">Del All Card</button>
+                            <!-- change to delete deck -->
                     </div>
                 </div>
             </div>
@@ -85,13 +86,13 @@
             <div class="create-box">
                 <h2 style="text-align: center; ">Create Flashcards</h2>
                 <label for="question">Question</label>
-                <textarea name="question" id=""></textarea>
+                <textarea name="question" id="txtQuestion"></textarea>
                 <br>
                 <label for="answer">Answer</label>
-                <textarea name="answer" id="" ></textarea>
+                <textarea name="answer" id="txtAnswer" ></textarea>
                 <div>
                     <button class="btn btn-primary" onclick="addFlashcard()">Save</button>
-                    <button class="btn btn-secondary onclick="hideCreateBox()">Cancel</button>
+                    <button class="btn btn-secondary" onclick="hideCreateBox()">Cancel</button>
                 </div>
             </div>
             <div>
