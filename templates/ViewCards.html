@@ -18,13 +18,12 @@
                     "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
     </script>
 
-    <link rel="stylesheet" href="/static/studydeck.css">
+    <link rel="stylesheet" href="../static/studydeck.css">
     <!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Study deck</title>
+    <title>View deck</title>
 </head>
-<body onload="loadCards()">
-
+<body>
 <!--    NAVBAR  -->
 <div class="row-cols-auto">
     <nav class="navbar navbar-expand-lg mynav">
@@ -55,9 +54,41 @@
         </div>
     </nav>
 </div>
-
-<!-- page scripts for flashcards -->
-<script src="../static/study.js"></script>
+<br>
+<div class="row-cols-2 offset-1 courses">
+            <a ><h1>
+                Deck Summary
+            </h1></a>
+        </div>
+<br>
+<br>
+<div class="col-10 offset-1">
+    <table style="width:100%; height:50px;">
+        <tr>
+            <th style="width:50%">Question</th>
+            <th style="width:50%">Answer</th>
+        </tr>
+        <tr style="height:auto ">
+            <td>CMM</td>
+            <td>Capability Maturity Model</td>
+        </tr>
+        <tr style="height:auto">
+            <td>What are non-functional requirements?</td>
+            <td>quality attribute, performance attribute, security attribute, or general system constraint</td>
+        </tr>
+        <tr style="height:auto">
+            <td>Use-cases are an example of _ based models</td>
+            <td>scenario-based models</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div style="text-align: center;">
+        {#    <a href="{{ url_for('view') }}" class="btn btn-primary" style="border-radius: 10%;background-color: #141d2a;font-size:20px;">Edit</a>#}
+        <a href="{{ url_for('study') }}" class="btn btn-primary"
+           style="border-radius: 10%; background-color: #141d2a;font-size:20px;">Study Deck</a>
+    </div>
+</div>
 
 </body>
 </html>
