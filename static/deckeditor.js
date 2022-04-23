@@ -77,7 +77,7 @@
 // function showCreateCardBox() {
 //     createBox.style.display = 'block';
 // }
-
+let terms = {}
 
 var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 

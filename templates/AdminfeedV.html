@@ -32,24 +32,21 @@
             <ul>
                 <li><a class="navbar-brand" href="Home.html">CSE<span>.study()</span></a>
                 </li>
-                <li><a href="/templates/Adminfeed.html">Home</a></li>
+                <li><a href="Home.html">Home</a></li>
             </ul>
 
         </div>
+        <!-- settings cog -->
         <div class="col-4 offset-1">
             <ul class="navbar-nav">
-                <div class="col-4 offset-1">
-                    <ul class="navbar-nav">
-                        <div class="dropdown">
-                            <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
-                                    class="fa fa-gear"></i>
-                            </button>
-                            <div class="dropdown-content" method="POST">
-                                <a href="{{ url_for('userSettingsPage') }}">Settings</a>
-                                <a href="{{ url_for('landing') }}">Logout</a>
-                            </div>
-                        </div>
-                    </ul>
+                <div class="dropdown">
+                    <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
+                            class="fa fa-gear"></i>
+                    </button>
+                    <div class="dropdown-content" method="POST">
+                        <a href="{{ url_for('userSettingsPage') }}">Settings</a>
+                        <a href="{{ url_for('landing') }}">Logout</a>
+                    </div>
                 </div>
             </ul>
         </div>
@@ -89,22 +86,12 @@
             </div>
 
         </div>
-        <div class="cols-1" style="padding: 10px;">
-            <div class="card">
-                <img src="\static\compEng.png" alt="coe" style="width:100%;">
-                <div class="container">
-                    <h5><b>COE420: Design Steps</b></h5>
-                    <p>AmiraEl</p>
-                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;" onclick="verifyRedirect()">verify</a>
-                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;" onclick="viewRedirect()">view</a>
-                </div>
-            </div>
-        </div>
+        
     </div>
+
 </div>
 <br>
 <br>
-
 <!-- RECENTLY VERIFIED -->
 <div class="row-cols courses">
     <div class="cols-sm-1 offset-1">
@@ -126,7 +113,16 @@
                 </div>
             </div>
         </div>
-        
+        <div class="cols-1" style="padding: 10px;">
+            <div class="card">
+                <img src="\static\compEng.png" alt="coe" style="width:100%;">
+                <div class="container">
+                    <h5><b>COE420: Design Steps</b> <i class="bi bi-patch-check-fill"></i></h5>
+                    <p>AmiraEl</p>
+                    <a href="#" class="btn btn-primary" style="background-color: #2b425e;" onclick="verifyRedirect()">view</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -141,11 +137,8 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
 <script>
-    function viewRedirect() {
-        window.location.href="/templates/adminVerifyDeck.html";
-    }
     function verifyRedirect() {
-        window.location.href="/templates/AdminfeedV.html";
+        window.location.href="/templates/adminVerifyDeck.html";
     }
 </script>
 </body>

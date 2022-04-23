@@ -70,37 +70,27 @@
     </div>
 
     <!-- deck editor area -->
-    <div class="editor-area">
-        <header>
-            <div class="container">
-                <div class="nav">
-                    <h1>Flashcards</h1>
-                    <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-success" type="button" id="show_card_box">Add Card</button>
-                        <button class="btn btn-danger" type="button" id="delete_cards">Del All Card</button>
-                    </div>
-                </div>
-            </div>
-        </header>
+    <section>
         <div class="container">
-            <div class="create-box">
-                <h2 style="text-align: center; ">Create Flashcards</h2>
-                <label for="question">Question</label>
-                <textarea name="question" id="txtQuestion"></textarea>
-                <br>
-                <label for="answer">Answer</label>
-                <textarea name="answer" id="txtAnswer" ></textarea>
-                <div>
-                    <button class="btn btn-primary" id="save_card" >Save</button>
-                    <button class="btn btn-secondary" id="close_card_box" >Cancel</button>
-                </div>
+          <div id="create_card">
+            <h2>Create Flashcard</h2>
+            <label for="question">Question</label>
+            <textarea id="question" maxlength="280"></textarea>
+            <label for="answer" maxlength="280">Answer</label>
+            <br>
+            <textarea id="answer"></textarea>
+            <div>
+              <button id="save_card">Save</button> <button id="close_card_box">Close</button>
             </div>
-            <div class="container">
-                <!-- flashcards area -->
-                <div class="flashcards" id="flashcards"></div>
-            </div>
+          </div>
         </div>
-    </div>
+      </section>
+  
+      <section>
+        <div class="container">
+          <div id="flashcards"></div>
+        </div>
+      </section>
         
         
 <!--bootstrap scripts-->
