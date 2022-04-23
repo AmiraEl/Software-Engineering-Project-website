@@ -69,15 +69,14 @@
 </div>
 
 <div class="row-cols-2 offset-1 courses">
-    <a href="ViewCourses.html"><h1>
+    <a><h1>
         Courses
     </h1></a>
 </div>
 
 <div class="cols-auto offset-1">
-    <button style="font-weight:bold; color: white;font-size: 14px;" class="btn"> COE370</button>
-    <button style="font-weight:bold; color: white;font-size: 14px;" class="btn" href="viewbycourse.html"> COE420</button>
-    <button style="font-weight:bold; color: white; font-size:3ex;" class="btn"> CMP120</button>
+    <a style="font-weight:bold; color: white;font-size: 14px;" class="btn" href="{{ url_for('viewByCourse') }}"> CMP220</a>
+    <a style="font-weight:bold; color: white;font-size: 14px;" class="btn" href="{{ url_for('viewByCourse') }}"> COE420</a>
 </div>
 
 </body>

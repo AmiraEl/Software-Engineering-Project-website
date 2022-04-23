@@ -22,9 +22,21 @@ userID = ''
 def study():
     return render_template("studydeck.html")
 
+@app.route('/search-coe420/')
+def search():
+    return render_template("search.html")
+
 @app.route('/view/')
 def view():
     return render_template("ViewCards.html")
+
+@app.route('/viewCourses/')
+def viewCourses():
+    return render_template("ViewCourses.html")
+
+@app.route('/viewByCourse/')
+def viewByCourse():
+    return render_template("viewbycourse.html")
 
 
 @app.route('/')
