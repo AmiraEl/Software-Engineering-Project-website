@@ -51,7 +51,7 @@ checkBtn.addEventListener('click', function(){
 
 nextBtn.addEventListener('click', function(){
     // getRandomTerm();
-    if(i==data.length-1) return;
+    if(i===data.length-1) return;
     toggleDef();
     i+=1;
     loadCards();
@@ -60,7 +60,7 @@ nextBtn.addEventListener('click', function(){
 
 prevBtn.addEventListener('click', function(){
     // getRandomTerm();
-    if(i==0) return;
+    if(i===0) return;
     toggleDef();
     i-=1;
     loadCards();

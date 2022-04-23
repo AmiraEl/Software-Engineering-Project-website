@@ -18,9 +18,13 @@ app.config['MYSQL_DB'] = 'swe'
 mysql = MySQL(app)
 userID = ''
 
-@app.route('/study/', methods=['POST', 'GET'])
-def studyDeck():
+@app.route('/study/')
+def study():
     return render_template("studydeck.html")
+
+@app.route('/view/')
+def view():
+    return render_template("ViewCards.html")
 
 
 @app.route('/')
