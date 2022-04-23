@@ -17,6 +17,7 @@
     <script src=
                     "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- local styles -->
     <link rel="stylesheet" href="/static/editdeck.css">
     <!-- Load icon library -->
@@ -75,9 +76,8 @@
                 <div class="nav">
                     <h1>Flashcards</h1>
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-success" type="button" onclick="showCreateCardBox()">Add Card</button>
-                        <button class="btn btn-danger" type="button" onclick="delFlashCards()">Del All Card</button>
-                            <!-- change to delete deck -->
+                        <button class="btn btn-success" type="button" id="show_card_box">Add Card</button>
+                        <button class="btn btn-danger" type="button" id="delete_cards">Del All Card</button>
                     </div>
                 </div>
             </div>
@@ -91,13 +91,13 @@
                 <label for="answer">Answer</label>
                 <textarea name="answer" id="txtAnswer" ></textarea>
                 <div>
-                    <button class="btn btn-primary" onclick="addFlashcard()">Save</button>
-                    <button class="btn btn-secondary" onclick="hideCreateBox()">Cancel</button>
+                    <button class="btn btn-primary" id="save_card" >Save</button>
+                    <button class="btn btn-secondary" id="close_card_box" >Cancel</button>
                 </div>
             </div>
-            <div>
+            <div class="container">
                 <!-- flashcards area -->
-                <div class="flashcards"></div>
+                <div class="flashcards" id="flashcards"></div>
             </div>
         </div>
     </div>

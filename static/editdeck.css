@@ -189,10 +189,21 @@ header {
     word-wrap: break-word;
     margin: 10px;
     background-color: white;
+    cursor: pointer;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    position: relative;
 }
 
 .flashcard h2 {
     font-size: 1rem;
 }
 
+.fa-minus{
+    top: 3%;
+    right: 2%;
+    position: absolute;
+    color: #1a1a1a;
+    transition: 0.3s ease-out;
+  }
+  
+  .fa-minus:hover{color: red;}
