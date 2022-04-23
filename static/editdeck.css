@@ -199,11 +199,11 @@ header {
 }
 
 .fa-minus{
-    top: 3%;
-    right: 2%;
-    position: absolute;
-    color: #1a1a1a;
-    transition: 0.3s ease-out;
-  }
-  
-  .fa-minus:hover{color: red;}
+  top: 3%;
+  right: 2%;
+  position: absolute;
+  color: #1a1a1a;
+  transition: 0.3s ease-out;
+}
+
+.fa-minus:hover{color: red;}
