@@ -30,6 +30,10 @@ def search():
 def view():
     return render_template("ViewCards.html")
 
+@app.route('/viewCourses/')
+def viewCourses():
+    return render_template("ViewCourses.html")
+
 
 @app.route('/')
 def landing():
