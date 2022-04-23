@@ -34,6 +34,10 @@ def view():
 def viewCourses():
     return render_template("ViewCourses.html")
 
+@app.route('/viewByCourse/')
+def viewByCourse():
+    return render_template("viewbycourse.html")
+
 
 @app.route('/')
 def landing():
