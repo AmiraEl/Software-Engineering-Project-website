@@ -106,10 +106,10 @@
 <script>
     function verifiedPopup() {
         alert('Successfully Verified');
-        window.location.href="/templates/AdminfeedV.html";
+        window.location.href="{{ url_for('adminFeed') }}";
     }
     function declinePopup() {
-        window.location.href="/templates/Adminfeed.html";
+        window.location.href="{{ url_for('AdminHome') }}";
     }
 </script>
         

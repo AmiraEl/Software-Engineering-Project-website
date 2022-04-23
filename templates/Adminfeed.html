@@ -30,9 +30,9 @@
     <nav class="navbar navbar-expand-lg mynav">
         <div class="col-md-4 lg-3">
             <ul>
-                <li><a class="navbar-brand" href="Home.html">CSE<span>.study()</span></a>
+                <li><a class="navbar-brand" href="{{ url_for('AdminHome') }}">CSE<span>.study()</span></a>
                 </li>
-                <li><a href="/templates/Adminfeed.html">Home</a></li>
+                <li><a href="{{ url_for('AdminHome') }}">Home</a></li>
             </ul>
 
         </div>
@@ -142,10 +142,10 @@
         crossorigin="anonymous"></script>
 <script>
     function viewRedirect() {
-        window.location.href="/templates/adminVerifyDeck.html";
+        window.location.href="{{ url_for('adminVerify') }}";
     }
     function verifyRedirect() {
-        window.location.href="/templates/AdminfeedV.html";
+        window.location.href="{{ url_for('adminFeed') }}";
     }
 </script>
 </body>

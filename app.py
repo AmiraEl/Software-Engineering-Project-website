@@ -26,6 +26,18 @@ def study():
 def search():
     return render_template("search.html")
 
+@app.route('/Admin-Home/')
+def AdminHome():
+    return render_template("Adminfeed.html")
+
+@app.route('/Admin-FeedV/')
+def adminFeed():
+    return render_template("AdminfeedV.html")
+
+@app.route('/AadminVerify/')
+def adminVerify():
+    return render_template("adminVerifyDeck.html")
+
 @app.route('/view/')
 def view():
     return render_template("ViewCards.html")
@@ -110,10 +122,10 @@ def loginPage():
 
 @app.route('/homepage/')
 def homePage():
-    if session['type'] == '0':  # student
-        return render_template('Home.html')
-    else:  # admin
+    if session['type'] == '1':  # student
         return render_template('Adminfeed.html')
+    else:  # admin
+        return render_template('Home.html')
 
 
 @app.route('/UserSettingsPage/', methods=['POST', 'GET'])
