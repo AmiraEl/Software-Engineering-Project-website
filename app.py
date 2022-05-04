@@ -18,41 +18,78 @@ app.config['MYSQL_DB'] = 'swe'
 mysql = MySQL(app)
 userID = ''
 
+
 @app.route('/study/')
 def study():
     return render_template("studydeck.html")
+
 
 @app.route('/editor/')
 def editCard():
     return render_template("deckeditor.html")
 
+
 @app.route('/search-coe420/')
 def search():
     return render_template("search.html")
+
 
 @app.route('/Admin-Home/')
 def AdminHome():
     return render_template("Adminfeed.html")
 
+
 @app.route('/Admin-FeedV/')
 def adminFeed():
     return render_template("AdminfeedV.html")
+
 
 @app.route('/AadminVerify/')
 def adminVerify():
     return render_template("adminVerifyDeck.html")
 
+
 @app.route('/view/')
 def view():
     return render_template("ViewCards.html")
 
+
 @app.route('/viewCourses/')
 def viewCourses():
-    return render_template("ViewCourses.html")
+    crs1 = ''
+    crs2 = ''
+    crs3 = ''
+    crs4 = ''
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    # if request.method == 'GET':
+    cursor.execute('SELECT C_ID FROM courses')
+    # Fetch one record and return result
+    course = cursor.fetchmany(4)
+    crs1 = course[0]['C_ID']
+    crs2 = course[1]['C_ID']
+    crs3 = course[2]['C_ID']
+    crs4 = course[3]['C_ID']
+    cursor.close()
+    return render_template("ViewCourses.html", crs1=crs1, crs2=crs2, crs3=crs3, crs4=crs4)
 
-@app.route('/viewByCourse/')
+
+@app.route('/viewByCourse/', methods=['GET'])
 def viewByCourse():
-    return render_template("viewbycourse.html")
+    crs1 = ''
+    crs2 = ''
+    crs3 = ''
+    crs4 = ''
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    # if request.method == 'GET':
+    cursor.execute('SELECT C_ID FROM courses')
+    # Fetch one record and return result
+    course = cursor.fetchmany(4)
+    crs1 = course[0]['C_ID']
+    crs2 = course[1]['C_ID']
+    crs3 = course[2]['C_ID']
+    crs4 = course[3]['C_ID']
+    cursor.close()
+    return render_template("viewbycourse.html", crs1=crs1, crs2=crs2, crs3=crs3, crs4=crs4)
 
 
 @app.route('/')
@@ -124,12 +161,26 @@ def loginPage():
     return render_template('login.html')
 
 
-@app.route('/homepage/')
+@app.route('/homepage/', methods=['POST', 'GET'])
 def homePage():
     if session['type'] == '1':  # student
         return render_template('Adminfeed.html')
     else:  # admin
-        return render_template('Home.html')
+        crs1 = ''
+        crs2 = ''
+        crs3 = ''
+        crs4 = ''
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        # if request.method == 'GET':
+        cursor.execute('SELECT C_ID FROM courses')
+        # Fetch one record and return result
+        course = cursor.fetchmany(4)
+        crs1 = course[0]['C_ID']
+        crs2 = course[1]['C_ID']
+        crs3 = course[2]['C_ID']
+        crs4 = course[3]['C_ID']
+        cursor.close()
+        return render_template("Home.html", crs1=crs1, crs2=crs2, crs3=crs3, crs4=crs4)
 
 
 @app.route('/UserSettingsPage/', methods=['POST', 'GET'])
