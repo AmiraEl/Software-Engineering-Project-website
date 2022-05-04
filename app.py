@@ -22,6 +22,10 @@ userID = ''
 def study():
     return render_template("studydeck.html")
 
+@app.route('/editor/')
+def editCard():
+    return render_template("deckeditor.html")
+
 @app.route('/search-coe420/')
 def search():
     return render_template("search.html")

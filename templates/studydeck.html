@@ -41,7 +41,6 @@
 
         <div class="col-4 offset-3">
             <ul class="navbar-nav">
-
                 <div class="dropdown">
                     <button class="dropbtn" style="background-color: #141d2a; border-color: #141d2a"><i
                             class="fa fa-gear"></i>
@@ -87,7 +86,7 @@
 <script src="../static/study.js"></script>
 <script>
     function editRedirect() {
-        window.location.href="/templates/deckeditor.html";
+        window.location.href="{{ url_for('editCard') }}";
     }
 </script>
 </body>

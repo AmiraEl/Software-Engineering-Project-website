@@ -18,17 +18,17 @@
                     "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
     </script>
 
-    <link rel="stylesheet" href="/static/deckeditor.css">
+    <link rel="stylesheet" href="/static/studydeck.css">
     <!-- Load icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Edit deck</title>
+    <title>Study deck</title>
 </head>
 <body onload="loadCards()">
 
 <!--    NAVBAR  -->
 <div class="row-cols-auto">
     <nav class="navbar navbar-expand-lg mynav">
-   <div class="col-md-5 lg-3">
+        <div class="col-md-4 lg-3">
             <ul>
                 <li><a class="navbar-brand" href="{{ url_for('homePage') }}">CSE<span>.study()</span></a>
                 </li>
@@ -39,7 +39,7 @@
             </ul>
         </div>
 
-        <div class="col-3 offset-3">
+        <div class="col-4 offset-3">
             <ul class="navbar-nav">
 
                 <div class="dropdown">
@@ -57,31 +57,19 @@
 </div>
 
 
-<h1 class="title">Edit deck</h1>
-<section class="editor-form">
-    <div class="container">
-      <div id="create_card">
-        <label for="term">Term</label> <br>
-        <textarea id="term" maxlength="280" cols="50" >CMM</textarea>
-        <br>
-        <label for="definition" >Definition</label>
-        <br>
-        <textarea id="answer" maxlength="280" cols="50">Capability Maturity Model</textarea>
-        <!-- <div>
-          <button id="save_card">Save</button> <button id="close_card_box">Close</button>
-        </div> -->
-      </div>
-    </div>
-  </section>
+<h1 class="title">Study deck</h1>
+
+<div class="term" name="termCard"><h3>{{ Term }}</h3></div>
+<!-- <div class="definition"><h3>Definition</h3></div> -->
 
 <!-- BUTTONS -->
 <div class="control-btns">
-    <button type="button" class="btn btn-success btnDef" name="greenBtn">Save Changes</button>
-    <button type="button" class="btn btn-secondary btnNext" name="nextBtn">Cancel</button>
-    <button type="button" class="btn btn-warning btnNext" name="nextBtn">Add flashcard</button>
+    <button type="button" class="btn btn-secondary btnPrev" name="prevBtn">Previous Term</button>
+    <button type="button" class="btn btn-success btnDef" name="greenBtn">Show Definition</button>
+    <button type="button" class="btn btn-secondary btnNext" name="nextBtn">Next Term</button>
 </div>
 <div class="viewDeck-btn">
-    <button type="button" class="btn btn-secondary" name="backtoDeckBtn" onclick="backdeckRedirect()">Back to deck</button>
+    <button type="button" class="btn btn-outline-warning" name="EditBtn" href="#viewDeck" onclick="editRedirect()">Edit Card</button>
 </div>
 
 
@@ -98,8 +86,8 @@
 <!-- page scripts for flashcards -->
 <script src="../static/study.js"></script>
 <script>
-    function backdeckRedirect() {
-        window.location.href="{{ url_for('study') }}";
+    function editRedirect() {
+        window.location.href="/templates/deckeditor.html";
     }
 </script>
 </body>
